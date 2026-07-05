@@ -226,7 +226,8 @@ function typeText(text, callback){
     if(i < text.length){
       typing.innerHTML += text.charAt(i);
       i++;
-      setTimeout(typingEffect, 55);
+      // 기존 55에서 85로 수정하여 타이핑 속도를 늦췄습니다.
+      setTimeout(typingEffect, 85);
     }else{
       if(callback){
         callback();
@@ -243,12 +244,7 @@ typeText(part1, () => {
 
     typing.classList.add("fade");
 
-    setTimeout(() => {
-
-      typing.classList.remove("fade");
-
-      typeText(part2, () => {
-        button.style.display = "inline-block";
+    }).style.display = "inline-block";
       });
 
     }, 600);
